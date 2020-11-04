@@ -9,6 +9,13 @@
             .two{
                 text-decoration: line-through;
             }
+            .canvas{
+                width: 300px;
+                height: 300px;
+                margin-top: 20px;
+                background: #ddd;
+
+            }
         </style>
     </head>
     <body>
@@ -19,6 +26,57 @@
             <a :href="url">YouTube</a>
             <div :class="classes">Classes from Insance</div>
             <input type="text" :value="name">
+            
+            <p>I earn {{ wage }} pounds per hour</p>
+            <button v-on:click="changeWage(1)">Increase wage by $1</button>
+            <p></p>
+            <button v-on:click="changeWage(-1)">Decrease wage by $1</button>
+            <p></p>
+            <button v-on:dblclick="changeWage(5)">Decrease wage by $5</button>
+            <p></p>
+            <button v-on:dblclick="changeWage(-5)">Decrease wage by $5</button>
+            <p></p>
+
+            <button @click="logEvent">Log Event Info</button>
+            <div class="canvas" @mousemove="logCoords">{{ coords.x }}, {{ coords.y }}</div>
+            <p></p>
+            
+            <input type="text" @keyup="updateName">
+            <p></p>
+            <input type="text" @keypress="updateName"> -- leaves off one letter
+            <p></p>
+            <input type="text" v-model="name"> -- creates the binding for us
+            <p></p>
+
+            <button @click="logMessage">Click Me</button>
+            <p></p>
+            <button @click.alt="logMessage">alt + Click Me</button>
+            <p></p>
+            <button @click.shift="logMessage">shift + Click Me</button>
+            <p></p>
+
+            <a href="http://www.google.com"  @click="logMessage">Google</a>
+            <p></p>
+            <a href="http://www.google.com"  @click.prevent="logMessage">Google prevent</a>
+            <p></p>
+            
+            <p v-if="showName">Mario</p>
+            <p v-else-if="showAge">25</p>
+            <button @click="toggleName">ShowName: {{ showName }} </button>
+            <p></p>
+            <button @click="toggleAge">ShowAge: {{ showAge }} </button>
+            <p></p>
+
+            <ul>
+                <li v-for="item in items">{{ item }}</li>
+            </ul>
+            <div v-for="(ninja, index) in ninjas">
+                <p>The ninja name is {{index }} - {{ ninja.name }}</p>
+                <p>The ninja name is {{ ninja.name }}</p>
+                <p>This ninja age is {{ ninja.age  }}</p>
+                <p>The ninja belt color is {{ ninja.belt }}</p>
+            </div>
+
         </div>
         <script src="app.js"></script>
     </body>
