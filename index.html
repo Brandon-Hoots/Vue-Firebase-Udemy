@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>Vue Basics</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+        <style>
+            .one{
+                color: green;
+            }
+            .two{
+                text-decoration: line-through;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Sprint Planning Tool</h1>
+        <div id="app">
+            <h2>{{ name }}</h2>
+            <p>{{ greet('morning') }}</p>
+            <a :href="url">YouTube</a>
+            <div :class="classes">Classes from Insance</div>
+            <input type="text" :value="name">
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
